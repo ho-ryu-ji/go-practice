@@ -1,8 +1,11 @@
 package main
 
 import (
+	"bufio"
 	"errors"
 	"fmt"
+	"log"
+	"os"
 )
 
 func max(a, b int) int {
@@ -10,6 +13,39 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+
+func variableLengthArguments(arg ...int) {
+	for _, n := range arg {
+		fmt.Printf("And the number is: %d\n", n)
+	}
+}
+
+func add1(a *int) int {
+	*a = *a + 1
+	return *a
+}
+
+func ReadWrite() bool {
+	file, err := os.Open("file.txt")
+
+	if err != nil {
+		// error
+		fmt.Printf("error")
+		os.Exit(1)
+	}
+	defer file.Close()
+
+	scanner := bufio.NewScanner(file)
+
+	for scanner.Scan() {
+		fmt.Println(scanner.Text())
+	}
+
+	if scanner.Err() != nil {
+		log.Fatal(err)
+	}
+	return true
 }
 
 func main() {
@@ -70,8 +106,21 @@ func main() {
 		fmt.Println("map's val:", v)
 	}
 
+	//function max
 	x, y, z := 3, 4, 5
 	fmt.Printf("max(%d, %d) = %d\n", x, y, max(x, y))
 	fmt.Printf("max(%d, %d) = %d\n", x, z, max(x, z))
 
+	// variable length arguments
+	variableLengthArguments(1, 2, 3, 100)
+
+	// pass by value n pass by reference
+	d := 3
+	fmt.Println("d = ", d)
+	d1 := add1(&d)
+	fmt.Println("d+1 = ", d1)
+	fmt.Println("d = ", d)
+
+	//
+	ReadWrite()
 }
