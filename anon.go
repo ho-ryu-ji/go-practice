@@ -17,7 +17,7 @@ type Student struct {
 	speciality string
 }
 
-func main() {
+func main() { // ↓ 何で2個？
 	jane := Student{Human: Human{"Jane", 35, 100}, speciality: "Biology"}
 
 	fmt.Println("Her name is ", jane.name)
