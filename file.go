@@ -11,7 +11,6 @@ func ReadWrite() bool {
 	file, err := os.Open("file.txt")
 
 	if err != nil {
-		// error
 		fmt.Printf("error")
 		os.Exit(1)
 	}
