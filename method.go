@@ -27,8 +27,8 @@ func main() {
 	c1 := Circle{10}
 	c2 := Circle{25}
 
-	fmt.Println("S.r1 = ", r1.area())
-	fmt.Println("S.r2 = ", r2.area())
-	fmt.Println("S.c1 = ", c1.area())
-	fmt.Println("S.c1 = ", c2.area())
+	fmt.Println("S.r1 =", r1.area())
+	fmt.Println("S.r2 =", r2.area())
+	fmt.Println("S.c1 =", c1.area())
+	fmt.Println("S.c1 =", c2.area())
 }
