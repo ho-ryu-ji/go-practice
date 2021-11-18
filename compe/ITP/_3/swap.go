@@ -11,10 +11,7 @@ func main() {
 			break
 		} else {
 			if x > y {
-				var tmp int
-				tmp = x
-				x = y
-				y = tmp
+				x, y = y, x
 			}
 			fmt.Println(x, y)
 		}
