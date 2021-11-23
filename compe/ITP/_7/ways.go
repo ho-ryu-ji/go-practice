@@ -8,15 +8,9 @@ func main() {
 		fmt.Scan(&n, &x)
 		var cnt int
 
-		// cnt := make([][][]int, n)
-		// for i := 0; i < n; i++ {
-		// 	cnt[i] = make([][]int, n)
-		// }
-		// for i := 0; i < n; i++ {
-		// 	for j := 0; j < n; j++ {
-		// 		cnt[i][j] = make([]int, n)
-		// 	}
-		// }
+		I := make([]int, n-1)
+		J := make([]int, n-2)
+		K := make([]int, n-3)
 
 		if n == 0 && x == 0 {
 			break
@@ -27,8 +21,11 @@ func main() {
 					if i == j || i == k || j == k {
 						continue
 					} else if i+j+k == x {
-						if 
-						cnt++
+						for i := 1; i <= n; i++ {
+							if i != I[i] || i != J[i] || i != K[i] {
+								cnt++
+							}
+						}
 					}
 				}
 			}
