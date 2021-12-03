@@ -4,7 +4,7 @@ import "fmt"
 
 func main() {
 	var p, s string
-	var i, j, ret int
+	var i, j, J, ret int
 	fmt.Scan(&s, &p)
 
 	for {
@@ -12,6 +12,8 @@ func main() {
 			if i == len(p)-1 {
 				fmt.Println("Yes")
 				break
+			} else if i == 0 {
+				J = j
 			}
 			i++
 			j++
@@ -22,6 +24,7 @@ func main() {
 			}
 			if i != 0 {
 				i = 0
+				j = J + 1
 			} else {
 				j++
 			}
