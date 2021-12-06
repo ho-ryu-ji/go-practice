@@ -1,22 +1,25 @@
 package main
 
-import "fmt"
+import (
+	"bufio"
+	"fmt"
+	"os"
+)
 
 func main() {
 	a := make([]int, 26)
+	scanner := bufio.NewScanner(os.Stdin)
 
-	for {
-		var c byte
-		fmt.Scan(&c)
-		if c == nil {
-			break
-		}
+	for scanner.Scan() {
+		s := scanner.Text()
 
-		if 'a' <= c && c <= 'z' {
-			a[c-'a']++
-		}
-		if 'A' <= c && c <= 'Z' {
-			a[c-'A']++
+		for i := 0; i < len(s); i++ {
+			if 'a' <= s[i] && s[i] <= 'z' {
+				a[s[i]-'a']++
+			}
+			if 'A' <= s[i] && s[i] <= 'Z' {
+				a[s[i]-'A']++
+			}
 		}
 	}
 
